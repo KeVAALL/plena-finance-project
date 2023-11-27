@@ -19,6 +19,7 @@ import {COLORS, icons} from './src/constants';
 import Tabs from './src/screens/tabs/tabs';
 import ScreenHeaderBtn from './src/components/header/HeaderBtn';
 import ProductDetails from './src/screens/ProductDetail/productDetail';
+import AppNavigator from './AppNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,30 +31,7 @@ function App() {
     <Provider store={store}>
       <Fragment>
         <PaperProvider>
-          <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen
-                name="App"
-                options={{headerShown: false, headerShadowVisible: false}}>
-                {props => <Tabs />}
-              </Stack.Screen>
-
-              <Stack.Screen
-                name="ProductDetail"
-                options={{
-                  headerShadowVisible: false,
-                  headerShown: true,
-                  headerTitle: '',
-                  headerShown: true,
-                  headerStyle: {
-                    elevation: 0,
-                  },
-                  contentStyle: {backgroundColor: '#fff'},
-                }}>
-                {props => <ProductDetails />}
-              </Stack.Screen>
-            </Stack.Navigator>
-          </NavigationContainer>
+          <AppNavigator />
         </PaperProvider>
       </Fragment>
     </Provider>
@@ -61,24 +39,3 @@ function App() {
 }
 
 export default App;
-// headerLeft: () => (
-//   // <HStack
-//   //   spacing={10}
-//   //   style={{padding: 10, alignItems: 'center'}}>
-//   <ScreenHeaderBtn
-//     iconUrl={icons.back}
-//     handlePress={() => {
-//       navigation.navigate('Home');
-//     }}
-//     dimension={20}
-//   />
-// ),
-// headerRight: () => (
-//   <ScreenHeaderBtn
-//     iconUrl={icons.cart}
-//     handlePress={() => {
-//       navigation.navigate('Cart');
-//     }}
-//     dimension={35}
-//   />
-// ),

@@ -8,6 +8,7 @@ import {COLORS, SIZES, icons} from '../../constants';
 import Home from './home';
 import Wishlist from './wishlist';
 import Cart from './cart';
+import HeaderHeading from '../../components/header/HeaderHeading';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,11 +23,11 @@ export default function Tabs() {
       screenOptions={{
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
-        tabBarActiveBackgroundColor: 'white',
+        tabBarActiveBackgroundColor: COLORS.white,
         tabBarStyle: {
           position: 'absolute',
           elevation: 0,
-          backgroundColor: '#fff',
+          backgroundColor: COLORS.white,
           height: 70,
           display: showTabBar ? 'flex' : 'none',
         },
@@ -41,20 +42,7 @@ export default function Tabs() {
             elevation: 0,
             backgroundColor: '#2A4BA0',
           },
-          headerLeft: () => (
-            <HStack
-              spacing={10}
-              style={{paddingLeft: SIZES.medium, alignItems: 'center'}}>
-              <Text
-                style={{
-                  color: COLORS.white,
-                  fontFamily: 'Manrope-Regular',
-                  fontSize: SIZES.large,
-                }}>
-                Hey, Keval
-              </Text>
-            </HStack>
-          ),
+          headerLeft: () => <HeaderHeading heading="Hey, Keval" />,
           headerRight: () => (
             <View style={{paddingRight: SIZES.medium}}>
               <ScreenHeaderBtn
@@ -95,20 +83,7 @@ export default function Tabs() {
           headerStyle: {
             elevation: 0,
           },
-          headerLeft: () => (
-            <HStack
-              spacing={10}
-              style={{paddingLeft: SIZES.medium, alignItems: 'center'}}>
-              <Text
-                style={{
-                  color: COLORS.black90,
-                  fontFamily: 'Manrope-Regular',
-                  fontSize: SIZES.large,
-                }}>
-                Wishlist
-              </Text>
-            </HStack>
-          ),
+          headerLeft: () => <HeaderHeading heading="Wishlist" />,
           headerRight: () => (
             <View style={{padding: 10}}>
               <ScreenHeaderBtn
